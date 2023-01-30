@@ -7,6 +7,7 @@ function Login() {
         Email: "",
         Pass: ""
     })
+
     const [errors, setErrors] = useState({
         EmailErr: "",
         PassErr: ""
@@ -41,11 +42,19 @@ function Login() {
         console.log("submit")
         e.preventDefault()
     }
+    const [passwordType, setPasswordType] = useState("password");
 
+    const togglePassword = () => {
+        if (passwordType === "password") {
+            setPasswordType("text")
+            return;
+        }
+        setPasswordType("password")
+    }
     return (
         <>
             {/*=========================first steps >> create your form bootstrap ==============*/}
-            <div style={{  }} className="m-4">
+            <div style={{}} className="m-4">
                 <h1 className="text-center"> Login ...</h1>
                 <form className="form-control">
                     <div className="mb-3">
@@ -53,9 +62,20 @@ function Login() {
                         <input name="userEmail" className={`form-control ${errors.EmailErr && "border border-danger"}`} type="text" value={userData.Email} onChange={(e) => changeData(e)} />
                         <p className="text-danger"> {errors.EmailErr}</p>
                     </div>
-                    <div className="mb-3">
+                    <div className="mb-3 ">
                         <label className="form-label">Password</label>
-                        <input name="userpass" className="form-control" value={userData.Pass} onChange={(e) => changeData(e)} />
+                        <div className="input-group">
+                            <input type={passwordType}  name="userpass" className="form-control" value={userData.Pass} onChange={(e) => changeData(e)}
+                            />
+                            <span className="input-group-text">
+
+                                <i className="bi bi-eye"
+                                    style={{ cursor: "pointer" }} onClick={(e) => togglePassword(e)} >
+
+                                    toggle</i>
+                            </span>
+                        </div>
+
                         <p className="text-danger"> {errors.PassErr}</p>
 
                     </div>
