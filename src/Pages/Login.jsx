@@ -53,6 +53,8 @@ function Login() {
     }
     return (
         <>
+            <i className="bi bi-eye"></i>
+            <i class="bi bi-0-circle-fill"></i>
             {/*=========================first steps >> create your form bootstrap ==============*/}
             <div style={{}} className="m-4">
                 <h1 className="text-center"> Login ...</h1>
@@ -62,10 +64,11 @@ function Login() {
                         <input name="userEmail" className={`form-control ${errors.EmailErr && "border border-danger"}`} type="text" value={userData.Email} onChange={(e) => changeData(e)} />
                         <p className="text-danger"> {errors.EmailErr}</p>
                     </div>
+                  
                     <div className="mb-3 ">
                         <label className="form-label">Password</label>
                         <div className="input-group">
-                            <input type={passwordType}  name="userpass" className="form-control" value={userData.Pass} onChange={(e) => changeData(e)}
+                            <input type={passwordType} name="userpass" className="form-control" value={userData.Pass} onChange={(e) => changeData(e)}
                             />
                             <span className="input-group-text">
 
