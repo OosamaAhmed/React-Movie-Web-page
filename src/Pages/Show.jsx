@@ -8,7 +8,7 @@ function Show(props) {
     // console.log(useParams())
     const [Movies, setMovies] = useState([])
     const params = useParams()
-    console.log(params)
+    // console.log(params)
     const Cid = params.id
     useEffect(() => {
         axios.get(`https://api.themoviedb.org/3/movie/${Cid}`, {

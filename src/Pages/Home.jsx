@@ -49,9 +49,9 @@ function Home() {
     const mySelector = useSelector((state) => state.Rfav.favorites);
     const dispatch = useDispatch();
     const myClick = (movie) => {
-        console.log(movie)
+        // console.log(movie)
         // 
-        dispatch(addToFavorites(movie.mySelector));
+        dispatch(addToFavorites(movie));
     };
 
     return (
@@ -74,7 +74,7 @@ function Home() {
                             <button className="btn btn-warning" onClick={() => myClick(movie)}>
                                 <i className="fa-regular fa-star"></i>
                             </button>
-                            <p>{mySelector}</p>
+                            {/* <p>{mySelector}</p> */}
                         </div>
                     )
                 })}
