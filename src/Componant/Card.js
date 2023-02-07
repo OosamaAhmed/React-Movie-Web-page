@@ -1,23 +1,30 @@
+import { useDispatch, useSelector } from "react-redux";
+
+import {addToFavorites, removeFavorites} from "../Store/Action/Action";
+
+
 function Card(props) {
-  // function Card({img, name, desc}) {
-  //
-  console.log(props);
+  // const mySelector = useSelector((state) => state.Rfav.favorites);
+  // const dispatch = useDispatch();
+  // const myClick = () => {
+  //   dispatch(addToFavorites(mySelector == "ADD" ? "REMOVE" : "ADD"));
+  // };
+
 
   return (
-    <>
-      <div className="card text-center mt-2" style={{ width: "13rem",height:"240px" }}>
+    <div>
+      {/* <button className="btn btn-warning" onClick={() => myClick()}>
+        <i className="fa-regular fa-star"></i>
+      </button> */}
+    
+{/* <h1>{mySelector}</h1> */}
+      <div className="card text-center" >
         <img src={props.img} className="card-img-top" alt="..." />
-
-        {/* <img src={props.img} className="card-img-top" alt="..." /> */}
-        {/* <img src={img} className="card-img-top" alt="..." /> */}
         <div className="card-body">
           <h5 className="card-title"> {props.name} </h5>
-          {/* <h5 className="card-title"> {name} </h5> */}
-
-          {/* <p className="card-text"> {desc} </p> */}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

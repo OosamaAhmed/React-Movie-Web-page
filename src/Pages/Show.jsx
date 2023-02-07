@@ -28,6 +28,8 @@ function Show(props) {
 
 
 <h1 className="text-light">{Movies.title}</h1>
+
+<button className="btn btn-primary"> Add to Fav</button>
 <hr className="text-light" />
 <p className="text-light display-4">{Movies.overview}</p>
                 <img src={`https://image.tmdb.org/t/p/w500/${Movies.backdrop_path}`} alt="osa" />

@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// =====================(import bootstrap after npm install bootstrap react-bootstrap)=========================
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Provider}  from 'react-redux';
+import mystore from './Store/Store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={mystore}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 

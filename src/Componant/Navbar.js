@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux";
+ 
 
 function Navbar(){
+  const mySelector = useSelector((state) => state.Rfav.favorites);
+
+// const mySelector = useSelector((state) => state.newfav.fav);
+// const dispatch = useDispatch();
+
+
 
 
     return (
@@ -12,6 +20,16 @@ function Navbar(){
             Movies
           </Link>
         </div>
+
+        <Link className="" to="/FavPage">
+       
+         
+          <button className="btn btn-secondary">
+          <i className="fa-solid fa-star"></i>
+          <p>{mySelector.length}</p>
+        </button>
+        </Link>
+       
         <button className="btn btn-primary m-2">login</button>
         <button className="btn btn-primary">sign </button>
       </nav>

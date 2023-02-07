@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import Card from "../Componant/Card";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addToFavorites } from "../Store/Action/Action";
+
 function Home() {
 
 
@@ -40,9 +43,19 @@ function Home() {
         e.preventDefault()
 
     }
+// store====================================================================
+  
+
+    const mySelector = useSelector((state) => state.Rfav.favorites);
+    const dispatch = useDispatch();
+    const myClick = (movie) => {
+        console.log(movie)
+        // 
+        dispatch(addToFavorites(movie.mySelector));
+    };
 
     return (
-        <div className=" bg-dark">
+        <div className=" container-fluid bg-dark">
             <form className="d-flex w-50 pt-2 m-auto" role="search">
                 <input className="form-control me-2" onChange={(e) => searchengine(e)} type="search" />
             </form>
@@ -52,11 +65,16 @@ function Home() {
             <div className="row">
                 {Movies.map((movie) => {
                     return (
-                        <div className="col-2">
-                            <Link to={`/show/${movie.id}`}>
-                                <Card img={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
-                                    name={movie.title} desc={movie.overview} />
-                            </Link>
+                        <div className="col-2 card m-1" style={{ width: "15rem" }}>
+                           
+                            <Card img={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+                                name={<Link to={`/show/${movie.id}`}>
+                                    {movie.title}
+                                </Link>} desc={movie.overview} />
+                            <button className="btn btn-warning" onClick={() => myClick(movie)}>
+                                <i className="fa-regular fa-star"></i>
+                            </button>
+                            <p>{mySelector}</p>
                         </div>
                     )
                 })}
