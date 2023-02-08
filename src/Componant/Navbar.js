@@ -15,19 +15,15 @@ function Navbar(){
             Movies
           </Link>
         </div>
-
-        {/* <Link className="" to={`/FavPage/${mySelector}`}> */}
+        <i className="fa-solid fa-star"></i>
         <Link className="" to={`/FavPage/`}>
-          <button className="btn btn-secondary">
-            <i className="fa-solid fa-star"></i>
-            <p>{mySelector.length}</p>
+          <button className="m-0  btn btn-warning m-1">
+            {mySelector.length}
           </button>
         </Link>
-
-        <button className="btn btn-primary m-2">login</button>
-        <button className="btn btn-primary">sign </button>
+        <button className="btn btn-primary m-1">login</button>
+        <button className="btn btn-primary m-1">sign </button>
       </nav>
     );
 }
-
 export default Navbar
